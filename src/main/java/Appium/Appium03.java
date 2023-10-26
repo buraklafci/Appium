@@ -24,10 +24,10 @@ public class Appium03 {
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\burak\\ideaProject\\Appium\\src\\Apps\\gestureTool.apk");
         capabilities.setCapability("appPackage","com.davemac327.gesture.tool");
         capabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
-        capabilities.setCapability("noReset","true");
+        capabilities.setCapability("noReset", "true");
         AndroidDriver<MobileElement> driver=new AndroidDriver(new URL("http://127.0.0.1:4723/"),capabilities);
 
-    //asadidaki kod tel kilitli ise acmamizi sagliyor
+        //asadidaki kod tel kilitli ise acmamizi sagliyor
 
         if (driver.isDeviceLocked()) {
             driver.unlockDevice();
@@ -35,19 +35,18 @@ public class Appium03 {
 
         System.out.println("app yuklendi");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         MobileElement homeScreenTitle = driver.findElementById("android:id/title");
         Assert.assertTrue(homeScreenTitle.isDisplayed());
         System.out.println("Ana sayfa acildi");
 
-
+        Thread.sleep(2000);
         MobileElement testButton = driver.findElementById("com.davemac327.gesture.tool:id/testButton");
         testButton.click();
         System.out.println("Test button calisiyor :)");
 
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         MobileElement testAGestureTitle = driver.findElementById("android:id/title");
-
         Assert.assertTrue(testAGestureTitle.isDisplayed());
         System.out.println("test screen acildi...");
 

@@ -1,21 +1,19 @@
 package Appium;
 
-
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.junit.Assert;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium02 {
+public class Appium03 {
     @Test
     public void test() throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities=new DesiredCapabilities();
@@ -27,23 +25,36 @@ public class Appium02 {
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\burak\\ideaProject\\Appium\\src\\Apps\\gestureTool.apk");
         capabilities.setCapability("appPackage","com.davemac327.gesture.tool");
         capabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
-
+        capabilities.setCapability("noReset","true");
         AndroidDriver<MobileElement> driver=new AndroidDriver(new URL("http://127.0.0.1:4723/"),capabilities);
 
+    //asadidaki kod tel kilitli ise acmamizi sagliyor
+
+        if (driver.isDeviceLocked()) {
+            driver.unlockDevice();
+        }
+
         System.out.println("app yuklendi");
-        Thread.sleep(3000);
-        driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.Button[2]").click();
+
         Thread.sleep(5000);
-        MobileElement okButton = driver.findElementByXPath("//android.widget.Button[@text='OK']");
-        okButton.click();
-        System.out.println("izinler onaylandi");
-
-
         MobileElement homeScreenTitle = driver.findElementById("android:id/title");
-
         Assert.assertTrue(homeScreenTitle.isDisplayed());
-        System.out.println("Ana syfa acildi");
+        System.out.println("Ana sayfa acildi");
 
+
+        MobileElement testButton = driver.findElementById("com.davemac327.gesture.tool:id/testButton");
+        testButton.click();
+        System.out.println("Test button calisiyor :)");
+
+        Thread.sleep(3000);
+        MobileElement testAGestureTitle = driver.findElementById("android:id/title");
+
+        Assert.assertTrue(testAGestureTitle.isDisplayed());
+        System.out.println("test screen acildi...");
+
+
+        //session kapat
+        driver.closeApp();
 
     }
 }
