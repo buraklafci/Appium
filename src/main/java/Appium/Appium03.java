@@ -24,7 +24,7 @@ public class Appium03 {
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\burak\\ideaProject\\Appium\\src\\Apps\\gestureTool.apk");
         capabilities.setCapability("appPackage","com.davemac327.gesture.tool");
         capabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
-        capabilities.setCapability("noReset", "true");
+        capabilities.setCapability("noReset", "true");//continue'ya basmadan direkt ana sayfa acilmasini saglar
         AndroidDriver<MobileElement> driver=new AndroidDriver(new URL("http://127.0.0.1:4723/"),capabilities);
 
         //asadidaki kod tel kilitli ise acmamizi sagliyor

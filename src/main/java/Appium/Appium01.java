@@ -30,17 +30,5 @@ public class Appium01 {
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/"), capabilities);
 
-        System.out.println("app yuklendi");
-        Thread.sleep(3000);
-        driver.findElementById("com.android.permissioncontroller:id/continue_button").click();
-        Thread.sleep(5000);
-        MobileElement okButton = driver.findElementByXPath("//android.widget.Button[@text='OK']");
-        okButton.click();
-        System.out.println("izinler onaylandi");
-
-
-        MobileElement homeScreenTitle = driver.findElementById("android:id/title");
-        Assert.assertTrue(homeScreenTitle.isDisplayed());
-        System.out.println("Ana syfa acildi");
     }
 }
