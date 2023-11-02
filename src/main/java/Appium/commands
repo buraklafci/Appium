@@ -1,0 +1,11 @@
+setCapability("appPackage","com.davemac327.gesture.tool");
+capabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
+
+appPackage ve appActivity bunlarin value degerleri icin ===>
+adb shell
+dumpsys window | grep -E “mCurrentFocus”
+dumpsys window windows | grep -E “mCurrentFocus | mFocusedApp”
+
+adb device ===> (bagli olan cihazları listeler)
+
+UI Selector komutlari icin ===> https://developer.android.com/reference/androidx/test/uiautomator/UiSelector
