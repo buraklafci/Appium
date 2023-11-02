@@ -17,7 +17,7 @@ public class Appium05NativeChrome {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // capabilities.setCapability("platformName","Android");
         capabilities.setCapability(CapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability("noReset", "true");
@@ -38,15 +38,15 @@ public class Appium05NativeChrome {
 
         Thread.sleep(4000);
 
-        MobileElement signInButton = driver.findElementByAccessibilityId("Sign in ›");
+        MobileElement signInButton = driver.findElementByXPath("//android.view.View[@content-desc=\"Sign in ›\"]/android.widget.TextView");
         signInButton.click();
 
         Thread.sleep(5000);
 
-        MobileElement welcomeText = driver.findElementByXPath("//android.widget.TextView[@text='Welcome']");
+        MobileElement welcomeText = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View[2]/android.view.View[1]");
         Assert.assertEquals(welcomeText.getText(),"Welcome");
 
-        System.out.println("test bitt...");
+        System.out.println("test bitti...");
         Thread.sleep(5000);
         //close session
         driver.closeApp();

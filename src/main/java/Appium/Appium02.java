@@ -21,7 +21,7 @@ public class Appium02 {
         DesiredCapabilities capabilities=new DesiredCapabilities();
        // capabilities.setCapability("platformName","Android");
         capabilities.setCapability(CapabilityType.PLATFORM_NAME,"Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"10.0");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"emulator-5554");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\burak\\ideaProject\\Appium\\src\\Apps\\gestureTool.apk");

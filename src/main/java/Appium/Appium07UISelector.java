@@ -18,7 +18,7 @@ public class Appium07UISelector {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // capabilities.setCapability("platformName","Android");
         capabilities.setCapability(CapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\burak\\ideaProject\\Appium\\src\\Apps\\gestureTool.apk");
@@ -27,7 +27,7 @@ public class Appium07UISelector {
 
         capabilities.setCapability("noReset","true");
 
-        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/"), capabilities);
        // https://developer.android.com/reference/androidx/test/uiautomator/UiSelector asagida ki kodlar bu siteden alinir
         //resourceId ile
         // driver.findElementByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/addButton\")").click();

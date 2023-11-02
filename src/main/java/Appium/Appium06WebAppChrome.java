@@ -18,16 +18,16 @@ public class Appium06WebAppChrome {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // capabilities.setCapability("platformName","Android");
         capabilities.setCapability(CapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60000");
+       // capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60000");
         //chrome driver versiyonunuzu burdan indirebilrisiniz
         //https://chromedriver.storage.googleapis.com/index.html
         //sonrasinda driver in absolute path bir alt satirda tanimliyorsunuz
-        capabilities.setCapability("chromedriverExecutable","/Users/ayyildiz/IdeaProjects/AppiumTechpro/src/driver/chromedriver");
-        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+       capabilities.setCapability("chromedriverExecutable","C:\\Users\\burak\\ideaProject\\Appium\\src\\driver\\chromedriver.exe");
+        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/"), capabilities);
 
         driver.get("https://www.amazon.com");
 
