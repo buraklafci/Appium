@@ -1,20 +1,19 @@
 package Appium;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.xml.dom.Tag;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium10BrowserStack {
+public class Appium11BrowserStackCalculatorAndroid {
     @Test
     public void browserStack() throws MalformedURLException, InterruptedException {
-
-
+        //https://app-automate.browserstack.com/dashboard/v2/quick-start/get-started remote dan appium testi
         DesiredCapabilities caps = new DesiredCapabilities();
 
         // Set your access credentials
@@ -29,9 +28,9 @@ public class Appium10BrowserStack {
         caps.setCapability("os_version", "12.0");
 
         // Set other BrowserStack capabilities
-        caps.setCapability("project", "Calculator");
+        caps.setCapability("project", "ApiDemo");
         caps.setCapability("build", "yeni");
-        caps.setCapability("name", "hesap makinasi");
+        caps.setCapability("name", "api Test");
 
 
         // Initialise the remote Webdriver using BrowserStack remote URL
@@ -40,15 +39,13 @@ public class Appium10BrowserStack {
         AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
                 new URL("http://hub.browserstack.com/wd/hub"), caps);
 
-        // Test case for the BrowserStack sample Android app.
-        // If you have uploaded your app, update the test case here.
-// Write your test case statements here
+
+        // Write your test case statements here
         Thread.sleep(3000);
         driver.findElementById("com.google.android.calculator:id/digit_5").click();
         Thread.sleep(3000);
 
         driver.findElementByAccessibilityId("plus").click();
-
         driver.findElementById("com.google.android.calculator:id/digit_5").click();
         Thread.sleep(3000);
 
